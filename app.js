@@ -20,6 +20,12 @@ app.use(express.json())
 
 await mongo.connect()
 
+const port =process.env.PORT||3001
+
+app.get("/",(req,res)=>{
+    res.send("Server is running successfully in port",port)
+})
+
 app.use("/auth",authRoutes)
 
 app.use("/users",userRoutes)
