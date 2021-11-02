@@ -23,7 +23,7 @@ await mongo.connect()
 const port =process.env.PORT||3001
 
 app.get("/",(req,res)=>{
-    res.send("Server is running successfully in port",port)
+    res.status(200).send("Server is running successfully ")
 })
 
 app.use("/auth",authRoutes)
@@ -38,7 +38,7 @@ app.use("/order",orderRoutes)
 
 app.use("/checkout",stripeRoutes)
 
-const port =process.env.PORT||3001
+
 
 app.listen(port,()=>{
     console.log("Server running in port 3001")
