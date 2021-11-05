@@ -108,7 +108,7 @@ async register(req,res){
         let data= await mongo.users.findOneAndUpdate({email:user.email},{$set:{resetToken:hashToken,resetExpire:expiry}},{ReturnDocument: "after" })
         console.log(data)
     
-        const link=`http://localhost:3000/resetPassword/${user._id}/${token}`
+        const link=`https://mayu-makeyouup.netlify.app/resetPassword/${user._id}/${token}`
         
         await sendMail(user.email,"Password Reset",link)
         
